@@ -46,7 +46,8 @@ tau2 run \
   --agent-model "openai/${MODEL_NAME}" \
   --domain mock \
   --max-steps 50 \
-  --num-trials 1
+  --num-trials 1 \
+  --calculate-uncertainty
 
 # 3. Temizlik
 echo "=== vLLM Sunucusu Kapatılıyor ==="
