@@ -28,7 +28,9 @@ python -m vllm.entrypoints.openai.api_server \
     --served-model-name $MODEL_NAME gpt-4.1 gpt-4o-mini \
     --port $PORT \
     --gpu-memory-utilization 0.9 \
-    --max-model-len 4096 &
+    --max-model-len 4096 \
+    --enable-auto-tool-choice \
+    --tool-call-parser hermes &
 
 VLLM_PID=$!
 
