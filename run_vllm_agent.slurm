@@ -2,7 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH -J agent_tracer_vllm
 #SBATCH --chdir=/dl_scratch2/ege/ege/repos/agent-tracer
-#SBATCH --nodelist=romer3
+#SBATCH --nodelist=adep1
 #SBATCH --gres=gpu:1
 #SBATCH --output=/dl_scratch2/ege/ege/repos/agent-tracer/results/agent_tracer_vllm-%j.out
 #SBATCH --error=/dl_scratch2/ege/ege/repos/agent-tracer/results/agent_tracer_vllm-%j.err
