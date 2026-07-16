@@ -22,8 +22,10 @@ PORT=8000
 
 echo "=== vLLM Sunucusu Başlatılıyor ==="
 # Arka planda vLLM OpenAI API sunucusunu başlatıyoruz (HuggingFace'den modeli indirecek/kullanacak)
+# tau2'nin içindeki bazı hardcoded değerlendiricilerin çökmemesi için modeli gpt-4.1 ve gpt-4o-mini olarak da isimlendiriyoruz
 python -m vllm.entrypoints.openai.api_server \
     --model $MODEL_NAME \
+    --served-model-name $MODEL_NAME gpt-4.1 gpt-4o-mini \
     --port $PORT \
     --gpu-memory-utilization 0.9 \
     --max-model-len 4096 &
@@ -49,6 +51,7 @@ export OPENAI_API_KEY="dummy-key" # LiteLLM'i kandırmak için boş bir string
 # Modeli verirken "openai/" prefixi kullanmamız LiteLLM'in API_BASE'e gitmesini sağlar.
 tau2 run \
   --agent-llm "openai/${MODEL_NAME}" \
+  --user-llm "openai/${MODEL_NAME}" \
   --domain mock \
   --max-steps 50 \
   --num-trials 1 \
