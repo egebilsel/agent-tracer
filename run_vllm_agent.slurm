@@ -17,7 +17,7 @@ export HF_HOME=/dl_scratch2/ege/hf_cache
 export HUGGINGFACE_HUB_CACHE=$HF_HOME/hub
 export TRANSFORMERS_CACHE=$HF_HOME/transformers
 
-MODEL_NAME="Qwen/Qwen2.5-Coder-3B-Instruct"
+MODEL_NAME="Qwen/Qwen2.5-7B-Instruct"
 PORT=8000
 
 echo "=== vLLM Sunucusu Başlatılıyor ==="
