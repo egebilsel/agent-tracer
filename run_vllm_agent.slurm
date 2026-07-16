@@ -30,9 +30,14 @@ python -m vllm.entrypoints.openai.api_server \
 
 VLLM_PID=$!
 
-# Sunucunun ayağa kalkması ve modeli GPU'ya yüklemesi için biraz süre tanıyoruz
-echo "vLLM sunucusunun ayağa kalkması bekleniyor (yaklaşık 60 sn)..."
-sleep 60
+# Sunucunun ayağa kalkması ve modeli GPU'ya yüklemesi modelin boyutuna göre uzun sürebilir.
+echo "vLLM sunucusunun ayağa kalkması bekleniyor..."
+# vLLM '/v1/models' endpointine yanıt verene kadar her 5 saniyede bir kontrol et
+while ! curl -s http://localhost:${PORT}/v1/models > /dev/null; do
+    echo "Hala bekleniyor..."
+    sleep 5
+done
+echo "vLLM sunucusu başarıyla ayağa kalktı ve istek almaya hazır!"
 
 # 2. LiteLLM & Agent Tracer (tau2) Ayarları
 echo "=== Agent Tracer Çalıştırılıyor ==="
