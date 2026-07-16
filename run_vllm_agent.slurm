@@ -43,7 +43,7 @@ export OPENAI_API_KEY="dummy-key" # LiteLLM'i kandırmak için boş bir string
 # tau2'yi OpenAI-uyumlu serverımıza yönlendiriyoruz. 
 # Modeli verirken "openai/" prefixi kullanmamız LiteLLM'in API_BASE'e gitmesini sağlar.
 tau2 run \
-  --agent-model "openai/${MODEL_NAME}" \
+  --agent-llm "openai/${MODEL_NAME}" \
   --domain mock \
   --max-steps 50 \
   --num-trials 1 \
