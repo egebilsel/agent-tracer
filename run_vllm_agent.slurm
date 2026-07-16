@@ -11,7 +11,7 @@
 # 1. Environment ve Cache Ayarları
 source ~/miniconda3/etc/profile.d/conda.sh
 # Kendi conda ortamınızı girin (diğer dosyalarınızdaki gibi matu-uq veya tau2 ortamı olabilir)
-conda activate /dl_scratch2/ege/ege/envs/matu-uq/
+conda activate /dl_scratch2/ege/ege/envs/agent-tracer
 
 export HF_HOME=/dl_scratch2/ege/hf_cache
 export HUGGINGFACE_HUB_CACHE=$HF_HOME/hub
