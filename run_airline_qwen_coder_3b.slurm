@@ -4,8 +4,8 @@
 #SBATCH --chdir=/dl_scratch2/ege/ege/repos/agent-tracer
 #SBATCH --nodelist=adep1
 #SBATCH --gres=gpu:1
-#SBATCH --output=/dl_scratch2/ege/ege/repos/agent-tracer/results/agent_tracer_vllm-%j.out
-#SBATCH --error=/dl_scratch2/ege/ege/repos/agent-tracer/results/agent_tracer_vllm-%j.err
+#SBATCH --output=/home/ege/ege/uncertainty/tracer_slurms/results/agent_tracer_vllm-%j.out
+#SBATCH --error=/home/ege/ege/uncertainty/tracer_slurms/results/agent_tracer_vllm-%j.err
 #SBATCH --time=1-00:00:00
 
 # 1. Environment ve Cache Ayarları
@@ -51,6 +51,8 @@ export OPENAI_API_KEY="dummy-key" # LiteLLM'i kandırmak için boş bir string
 
 # tau2'yi OpenAI-uyumlu serverımıza yönlendiriyoruz. 
 # Modeli verirken "openai/" prefixi kullanmamız LiteLLM'in API_BASE'e gitmesini sağlar.
+export TAU2_DATA_DIR=/home/ege/ege/uncertainty/tracer_slurms/data
+
 tau2 run \
   --agent-llm "openai/${MODEL_NAME}" \
   --user-llm "openai/${MODEL_NAME}" \
