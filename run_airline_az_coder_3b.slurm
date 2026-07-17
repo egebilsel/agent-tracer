@@ -2,7 +2,7 @@
 #SBATCH --nodes=1
 #SBATCH -J air_az_coder_3b
 #SBATCH --chdir=/dl_scratch2/ege/ege/repos/agent-tracer
-#SBATCH --nodelist=adep1
+#SBATCH --nodelist=adep2
 #SBATCH --gres=gpu:1
 #SBATCH --output=/home/ege/ege/uncertainty/tracer_slurms/results/agent_tracer_vllm-%j.out
 #SBATCH --error=/home/ege/ege/uncertainty/tracer_slurms/results/agent_tracer_vllm-%j.err
